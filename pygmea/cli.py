@@ -64,7 +64,9 @@ class URLDownloaderApp:
                 app.statusMessage.set(url + " downloading...")
                 request.urlretrieve(url, filename)
             except Exception as e:
-                app.statusMessage.set(url + " download failed" + e.with_traceback())
+                app.statusMessage.set(
+                    url + " download failed" + e.with_traceback()
+                )
                 time.sleep(500)
             app.statusMessage.set(url + " downloaded successfull")
 
@@ -89,7 +91,9 @@ class URLDownloaderApp:
         self.urlSourceEntry.configure(takefocus=False)
         self.urlSourceEntry.grid(column=0, columnspan=2, row=0, sticky="ew")
         _text_ = (
-            "https://cdn.jsdelivr.net/gh/belaviyo/download-with/" "samples/sample.png"
+            "https://cdn.jsdelivr.net"
+            "/gh/belaviyo/download-with/samples/"
+            "sample.png"
         )
         self.urlSourceEntry.delete("0", "end")
         self.urlSourceEntry.insert("0", _text_)
